@@ -23,8 +23,13 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+// app.post("/submit", (req, res) => {
+//   res.send(`<h1>Your band name is:</h1><h2>${bandName}✌️</h2>`);
+// });
+
 app.post("/submit", (req, res) => {
-  res.send(`<h1>Your band name is:</h1><h2>${bandName}✌️</h2>`);
+  const submittedbandName = req.body["street"] + req.body["pet"];
+  res.send(`<h1>Your band name is:</h1><h2>${submittedbandName}✌️</h2>`);
 });
 
 app.listen(port, () => {
